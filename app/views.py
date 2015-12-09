@@ -17,19 +17,20 @@ def process_dates(dates):
 
 @app.route("/sample_report",methods=["GET","POST"])
 def sample_report():
-    data = [elem.date_created for elem in Data.query.all()]
-    time_elapsed = process_dates(data)
+    dates = [elem.date_created for elem in Data.query.all()]
+    time_elapsed = process_dates(dates)
     s = sp.array(time_elapsed)
     n,min_max,mean,var,skew,kurt = stats.describe(s)
     time_elapsed = ["time elapsed"] + time_elapsed
+    data = zip(Data.query.all(),time_elapsed[1:])
     return render_template(
         "sample_report.html",
         average=round(mean,3),
         standard_deviation=round(math.sqrt(var),3),
         skew=round(skew,3),
         kurtosis=round(kurt,3),
-        data=json.dumps([str(datum) for datum in data]),
-        time_elapsed=json.dumps(time_elapsed)
+        time_elapsed=json.dumps(time_elapsed),
+        data=data
     )
 
 @app.route("/query_bar",methods=["GET","POST"])
