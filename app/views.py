@@ -15,8 +15,12 @@ def process_dates(dates):
         time_elapsed.append((current_date - date).days)
     return time_elapsed
 
-@app.route("/sign_in",methods=["GET","POST"])
+@app.route("/splash_page",methods=["GET","POST"])
 @app.route("/",methods=["GET","POST"])
+def splash_page():
+    return render_template("splash_page.html")
+
+@app.route("/sign_in",methods=["GET","POST"])
 def sign_in():
     return render_template("sign_in.html")
 
