@@ -15,6 +15,11 @@ def process_dates(dates):
         time_elapsed.append((current_date - date).days)
     return time_elapsed
 
+@app.route("/sign_in",methods=["GET","POST"])
+@app.route("/",methods=["GET","POST"])
+def sign_in():
+    return render_template("sign_in.html")
+
 @app.route("/sample_report",methods=["GET","POST"])
 def sample_report():
     dates = [elem.date_created for elem in Data.query.all()]
