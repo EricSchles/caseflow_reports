@@ -30,15 +30,17 @@ def sample_report():
     time_elapsed = process_dates(dates)
     s = sp.array(time_elapsed)
     n,min_max,mean,var,skew,kurt = stats.describe(s)
-    time_elapsed = ["time elapsed"] + time_elapsed
-    data = zip(Data.query.all(),time_elapsed[1:])
+    sorted_time_elapsed = time_elapsed[:]
+    sorted_time_elapsed.sort()
+    sorted_time_elapsed = ["time elapsed"] + sorted_time_elapsed 
+    data = zip(Data.query.all(),time_elapsed)
     return render_template(
         "sample_report.html",
         average=round(mean,3),
         standard_deviation=round(math.sqrt(var),3),
         skew=round(skew,3),
         kurtosis=round(kurt,3),
-        time_elapsed=json.dumps(time_elapsed),
+        time_elapsed=json.dumps(sorted_time_elapsed),
         data=data
     )
 
