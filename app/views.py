@@ -41,6 +41,8 @@ def process_dates(dates):
 
 def check_password(email,password):
     user_pw = str(Users.query.filter_by(email=email).first().password)
+    print user_pw
+    print password
     if bcrypt.hashpw(password,user_pw) == user_pw:
         return True
     else:
@@ -86,6 +88,31 @@ def sample_report():
         time_elapsed=json.dumps(time_elapsed),
         sorted_time_elapsed=json.dumps(sorted_time_elapsed),
         data=data
+    )
+
+@app.route("/protected_report",methods=["GET","POST"])
+@flask_login.login_required
+def protected_report():
+    dates = [elem.date_created for elem in Data.query.all()]
+    time_elapsed = process_dates(dates)
+    s = sp.array(time_elapsed)
+    n,min_max,mean,var,skew,kurt = stats.describe(s)
+    sorted_time_elapsed = time_elapsed[:]
+    sorted_time_elapsed.sort()
+    sorted_time_elapsed = ["Sorted Time Elapsed - Note: sorted order does not correspond to the table below"] + sorted_time_elapsed 
+    data = zip(Data.query.all(),time_elapsed)
+    time_elapsed = ["time elapsed"] + time_elapsed
+    return render_template(
+        "protected_report.html",
+        show_sorted=True,
+        average=round(mean,3),
+        standard_deviation=round(math.sqrt(var),3),
+        skew=round(skew,3),
+        kurtosis=round(kurt,3),
+        time_elapsed=json.dumps(time_elapsed),
+        sorted_time_elapsed=json.dumps(sorted_time_elapsed),
+        data=data,
+        user=flask_login.current_user.id
     )
 
 @app.route("/query_bar",methods=["GET","POST"])
