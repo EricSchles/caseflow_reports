@@ -7,6 +7,7 @@ import scipy as sp
 from scipy import stats
 import math
 from app import flask_login,login_manager
+import bcrypt
 
 @login_manager.user_loader
 def user_loader(email):
@@ -38,22 +39,31 @@ def process_dates(dates):
         time_elapsed.append((current_date - date).days)
     return time_elapsed
 
+def check_password(email,password):
+    user_pw = str(Users.query.filter_by(email=email).first().password)
+    if bcrypt.hashpw(password,user_pw) == user_pw:
+        return True
+    else:
+        return False
+    
 @app.route("/login",methods=["GET","POST"])
 def login():
     if request.method == "GET":
         return render_template("login.html")
-    email = request.form.get("email")
-    if request.form.get("password") == Users.query.filter_by(email=email).first().password:
-        
+    #explicitly force string type because of demands from bcrypt
+    email = str(request.form.get("email"))
+    password = str(request.form.get("password"))
+    if check_password(email,password):
+        user = User()
+        user.id = email
+        flask_login.login_user(user)
+        return redirect(url_for("splash_page"))
+    return render_template("login.html",error="username or password was incorrect, please try again")
     
 @app.route("/splash_page",methods=["GET","POST"])
 @app.route("/",methods=["GET","POST"])
 def splash_page():
     return render_template("splash_page.html")
-
-@app.route("/sign_in",methods=["GET","POST"])
-def sign_in():
-    return render_template("sign_in.html")
 
 @app.route("/sample_report",methods=["GET","POST"])
 def sample_report():
