@@ -1,4 +1,5 @@
 from flask import render_template, redirect,request,url_for,g,flash
+from flask.ext.login import current_user, logout_user
 from app import app
 from models import *
 from datetime import datetime
@@ -65,7 +66,7 @@ def login():
 @app.route("/splash_page",methods=["GET","POST"])
 @app.route("/",methods=["GET","POST"])
 def splash_page():
-    return render_template("splash_page.html")
+    return render_template("splash_page.html",current_user=current_user)
 
 @app.route("/sample_report",methods=["GET","POST"])
 def sample_report():
@@ -120,3 +121,9 @@ def query_bar():
     if request.method=="POST":
         pass
     return "nothing"
+
+@app.route("/logout")
+@flask_login.login_required
+def logout():
+    logout_user()
+    return redirect(url_for("splash_page"))
