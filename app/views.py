@@ -118,6 +118,13 @@ def protected_report():
 
 @app.route("/query_bar",methods=["GET","POST"])
 def query_bar():
+    if request.method == "POST":
+        query = request.args.get("query")
+        
+
+        
+@app.route("/query_bar",methods=["GET","POST"])
+def query_bar():
     if request.method=="POST":
         pass
     return "nothing"
