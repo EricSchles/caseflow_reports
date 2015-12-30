@@ -1,3 +1,4 @@
+networkx
 Flask
 Flask-SQLAlchemy
 gunicorn
