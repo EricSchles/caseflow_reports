@@ -1,0 +1,184 @@
+(lp0
+(S'What is the average number of days in this dataset?'
+p1
+S'descriptive statistic'
+p2
+tp3
+a(S'What are the average number of days in this dataset?'
+p4
+g2
+tp5
+a(S'How many cases are more than 60 days old?'
+p6
+g2
+tp7
+a(S'How many cases are less than 50 days old?'
+p8
+g2
+tp9
+a(S'What is the skew of this dataset?'
+p10
+g2
+tp11
+a(S'How many people are in this dataset?'
+p12
+g2
+tp13
+a(S'What is the median number of days a case has been in this dataset?'
+p14
+g2
+tp15
+a(S'How many days exist in this dataset, in total?'
+p16
+g2
+tp17
+a(S'Do men have a longer processing time than women, on average?'
+p18
+g2
+tp19
+a(S'How long do men have to wait to be processed on average?'
+p20
+g2
+tp21
+a(S'do men have a longer processing time than women, on average?'
+p22
+g2
+tp23
+a(S'how many cases are more than 150 days old?'
+p24
+g2
+tp25
+a(S'What is the median number of days a case takes to be processed?'
+p26
+g2
+tp27
+a(S'What is the mean number of days a case takes to be processed?'
+p28
+g2
+tp29
+a(S'What is the mode of the number of days a case takes to be processed?'
+p30
+g2
+tp31
+a(S'What is the middle number of days a case takes to be processed?'
+p32
+g2
+tp33
+a(S'What is the variance of days a case takes to be processed?'
+p34
+g2
+tp35
+a(S'What is the standard deviation of days a case takes to be processed?'
+p36
+g2
+tp37
+a(S'What is the std. dev. of days a case takes to be processed?'
+p38
+g2
+tp39
+a(S'What is the least amount of days a case takes to be processed?'
+p40
+g2
+tp41
+a(S'average cases by days in system'
+p42
+g2
+tp43
+a(S'variance cases by days in system'
+p44
+g2
+tp45
+a(S'standard deviation by days in system'
+p46
+g2
+tp47
+a(S'std. dev. by days in system'
+p48
+g2
+tp49
+a(S'ave. cases by days in system'
+p50
+g2
+tp51
+a(S'total cases in system'
+p52
+g2
+tp53
+a(S'average of total cases longer than 60 days in system'
+p54
+g2
+tp55
+a(S'mode of total cases'
+p56
+g2
+tp57
+a(S'median of total cases'
+p58
+g2
+tp59
+a(S'all cases over 20 days'
+p60
+g2
+tp61
+a(S'Show me a bar chart of the total number of days a case has been here'
+p62
+S'simple plot'
+p63
+tp64
+a(S'Show me a bar chart of the number of days a case has been in the system'
+p65
+g63
+tp66
+a(S"Show me a bar chart of the cases by amount of time they've taken"
+p67
+g63
+tp68
+a(S'bar chart cases by amount of time'
+p69
+g63
+tp70
+a(S'Visually explain the number of cases in the system'
+p71
+g63
+tp72
+a(S'Plot of the number of cases that have been in the system longer than 40 days'
+p73
+g63
+tp74
+a(S'Plot the number of cases that have been in the system since 2012'
+p75
+g63
+tp76
+a(S'Plot the number of cases that are older than 20 days'
+p77
+g63
+tp78
+a(S'Plot the number of cases that are less than 50 days'
+p79
+g63
+tp80
+a(S'Make a scatter plot of the total number of cases older than 50 days'
+p81
+g63
+tp82
+a(S'Make a pie plot of the number of cases'
+p83
+g63
+tp84
+a(S'Make a bar chart of the number of cases'
+p85
+g63
+tp86
+a(S'Make a pie chart of the number of cases'
+p87
+g63
+tp88
+a(S'Make a time series of the number of cases'
+p89
+g63
+tp90
+a(S'Make a plot of all cases over time'
+p91
+g63
+tp92
+a.

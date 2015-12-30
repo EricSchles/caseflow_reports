@@ -9,6 +9,7 @@ from scipy import stats
 import math
 from app import flask_login,login_manager
 import bcrypt
+from nlp_tools import classify_query
 
 @login_manager.user_loader
 def user_loader(email):
@@ -119,15 +120,11 @@ def protected_report():
 @app.route("/query_bar",methods=["GET","POST"])
 def query_bar():
     if request.method == "POST":
-        query = request.args.get("query")
-        
-
-        
-@app.route("/query_bar",methods=["GET","POST"])
-def query_bar():
-    if request.method=="POST":
-        pass
-    return "nothing"
+        query = str(request.form.get("query"))
+        print type(query)
+        return classify_query(query)
+    else:
+        return redirect(url_for("protected_report"))
 
 @app.route("/logout")
 @flask_login.login_required
