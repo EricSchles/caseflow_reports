@@ -1,2 +1,2 @@
-https://coderanger.net/heroku-cffi/
+http://stackoverflow.com/questions/22415725/problems-with-custom-libffi-heroku-buildpack
 https://github.com/heroku/heroku-buildpack-python
