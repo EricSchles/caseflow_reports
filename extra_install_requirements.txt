@@ -1,2 +1,2 @@
+https://coderanger.net/heroku-cffi/
 https://github.com/heroku/heroku-buildpack-python
-heroku config:add BUILDPACK_URL=git://github.com/mfenniak/heroku-buildpack-python-libffi.git

@@ -1,3 +1,5 @@
+cffi
+cryptography
 Flask
 Flask-SQLAlchemy
 gunicorn
