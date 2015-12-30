@@ -3,3 +3,8 @@ Flask-SQLAlchemy
 gunicorn
 Flask-Security
 bcrypt
+nltk
+distance
+scikit-learn
+git+git://github.com/EricSchles/text_classify.git
+textblob
