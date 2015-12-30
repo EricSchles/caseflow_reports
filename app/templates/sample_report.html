@@ -28,6 +28,16 @@
 	<li>Kurtosis: {{kurtosis}}</li>
 </ul>
 
+<form class="form-horizontal" action="{{ url_for('query_bar') }}" method="post">
+  <div class="form-group">
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="query" placeholder="Enter Search Term">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit Query</button>
+</form>
+
+
 <div class="container">
   <h2>Bordered Table</h2>
   <table class="table table-bordered">
