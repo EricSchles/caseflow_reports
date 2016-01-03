@@ -1,2 +1,10 @@
 http://stackoverflow.com/questions/22415725/problems-with-custom-libffi-heroku-buildpack
 https://github.com/heroku/heroku-buildpack-python
+
+on heroku you need to run:
+
+heroku run python
+>>> import nltk
+>>> nltk.download() #get all
+
+http://stackoverflow.com/questions/24107444/herokupythonnltk-lookuperror/26334947#26334947 
